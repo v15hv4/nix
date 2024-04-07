@@ -1,0 +1,132 @@
+*,
+*:hover {
+    border: none;
+    font-family: "SF Pro Display", "Material Design Icons", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #000000;
+    color: #dedede;
+    border-radius: 0;
+}
+
+tooltip {
+    background: #121212;
+    border: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #dedede;
+}
+
+#workspaces {
+    margin: 0px 4px;
+}
+
+#workspaces button {
+    padding: 0px;
+    background-color: #000000;
+    color: #434343;
+}
+
+#workspaces button.empty {
+    color: #434343;
+}
+
+#workspaces button.active {
+    color: #dedede;
+}
+
+#workspaces button.focused {
+    color: #dedede;
+}
+
+#workspaces button.urgent {
+    color: #f44336;
+}
+
+#clock,
+#pulseaudio,
+#network,
+#tray,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#battery {
+    color: #dedede;
+    background: #000000;
+    padding: 8px 0px;
+    margin: 0px 4px;
+}
+
+#network:hover {
+    all: inherit;
+    padding: 0px;
+    margin: 0px 4px;
+}
+
+#pulseaudio:hover {
+    all: inherit;
+    padding: 0px;
+    margin: 0px 4px;
+}
+
+#custom-sep {
+    margin: 0px 1px;
+    padding: 0px;
+    color: #666666;
+}
+
+#tray {
+}
+
+#workspaces {
+}
+
+#clock {
+}
+
+#network {
+    color: #aeea00;
+}
+
+#network.disconnected {
+    color: #ff6e40;
+}
+
+#pulseaudio.output {
+    color: #aeea00;
+}
+
+#pulseaudio.input {
+    color: #aeea00;
+}
+
+#pulseaudio.output.muted {
+    color: #ff6e40;
+}
+
+#pulseaudio.input.source-muted {
+    color: #ff6e40;
+}
+
+#battery {
+}
+
+#backlight {
+}
+
+#cpu {
+    color: #ffe57f;
+}
+
+#memory {
+    color: #8c9eff;
+}
+
+#disk {
+    color: #ffab40;
+}
