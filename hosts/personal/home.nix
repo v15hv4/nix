@@ -65,6 +65,7 @@
     ".config/kitty".source = ./dotfiles/kitty;
     ".config/kanshi".source = ./dotfiles/kanshi;
     ".config/waybar".source = ./dotfiles/waybar;
+    ".config/albert.conf".source = ./dotfiles/albert.conf;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     ".tmux.conf".source = ./dotfiles/.tmux.conf;
@@ -107,16 +108,6 @@
       enable = true;
       plugins = [ "git" "thefuck" "docker" "docker-compose" "systemd" ];
     };
-    # zplug = {
-    #   enable = true;
-    #   plugins = [
-    #     { name = "plugins/git"; tags = [from:oh-my-zsh]; }
-    #     { name = "plugins/docker"; tags = [from:oh-my-zsh]; }
-    #     { name = "plugins/docker-compose"; tags = [from:oh-my-zsh]; }
-    #     { name = "plugins/zsh-history-substring-search"; tags = [from:oh-my-zsh]; }
-    #     { name = "sunlei/zsh-ssh"; }
-    #   ];
-    # };
     initExtraBeforeCompInit = ''
       # p10k instant prompt
       P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
@@ -135,8 +126,10 @@
     shellAliases = {
       vim = "nvim";
       ls = "eza";
-      df = "duf";
-      cat = "bat";
+      df = "duf -theme light";
+      cat = "bat --theme gruvbox-light";
+      rs = "rsync -avzWP";
+      dc = "docker compose";
       nsn = "nix search nixpkgs ^";
     };
   };
