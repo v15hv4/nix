@@ -150,8 +150,7 @@
     waybar
     hypridle
     hyprlock
-    # hyprshot # temporarily replaced with flameshot until freeze is implemented
-    flameshot
+    hyprshot
     hyprpaper
     wlr-randr
     brightnessctl
