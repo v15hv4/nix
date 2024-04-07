@@ -131,6 +131,7 @@
     imv
     fzf
     git
+    vim
     tmux
     htop
     wget
