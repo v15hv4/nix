@@ -55,7 +55,8 @@ tooltip {
 #memory,
 #disk,
 #backlight,
-#battery {
+#battery,
+#bluetooth {
     color: #dedede;
     background: #000000;
     padding: 8px 0px;
@@ -129,4 +130,16 @@ tooltip {
 
 #disk {
     color: #ffab40;
+}
+
+#bluetooth.on {
+    color: #dedede;
+}
+
+#bluetooth.off {
+    color: #434343;
+}
+
+#bluetooth.connected {
+    color: #0082FC;
 }
