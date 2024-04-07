@@ -18,8 +18,11 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.google-chrome
     pkgs.albert
+    pkgs.vscode
+    pkgs.spotify
+    pkgs.google-chrome
+    pkgs.telegram-desktop
 
     # languages
     pkgs.clang-tools

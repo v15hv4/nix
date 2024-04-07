@@ -115,7 +115,7 @@
   users.users.v15hv4 = {
     isNormalUser = true;
     description = "V";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       neovim
       firefox
@@ -139,6 +139,7 @@
     ripgrep
     pamixer
     blueberry
+    docker-compose
 
     # languages
     nodejs_21
@@ -149,7 +150,8 @@
     waybar
     hypridle
     hyprlock
-    hyprshot
+    # hyprshot # temporarily replaced with flameshot until freeze is implemented
+    flameshot
     hyprpaper
     wlr-randr
     brightnessctl
@@ -230,4 +232,13 @@
   # desktop environment
   programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # docker
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 }
