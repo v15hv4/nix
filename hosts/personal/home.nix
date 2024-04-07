@@ -27,6 +27,7 @@
     pkgs.clangStdenv
 
     # utils
+    pkgs.jq
     pkgs.bat
     pkgs.eza
     pkgs.duf
@@ -59,6 +60,7 @@
   home.file = {
     ".config/hypr".source = ./dotfiles/hypr;
     ".config/kitty".source = ./dotfiles/kitty;
+    ".config/kanshi".source = ./dotfiles/kanshi;
     ".config/waybar".source = ./dotfiles/waybar;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
@@ -100,7 +102,7 @@
     autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "docker" "docker-compose" ];
+      plugins = [ "git" "thefuck" "docker" "docker-compose" "systemd" ];
     };
     # zplug = {
     #   enable = true;
