@@ -50,7 +50,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Use GDM for login management
+  # Use LightDM for login management
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "v15hv4";
@@ -156,13 +156,15 @@
     nwg-look
     hypridle
     hyprlock
-    hyprshot
     hyprpaper
+    grimblast
     wlr-randr
     brightnessctl
     capitaine-cursors
+    xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
+    sway-contrib.grimshot
 
     # gui
     dolphin
