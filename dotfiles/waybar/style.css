@@ -65,7 +65,9 @@ tooltip {
 #backlight,
 #battery,
 #bluetooth,
-#custom-sep {
+#custom-sep,
+#custom-weather,
+#custom-swaync {
     color: #dedede;
     background: #000000;
     padding: 8px 0px;
@@ -151,4 +153,20 @@ tooltip {
 
 #bluetooth.connected {
     color: #0082FC;
+}
+
+#custom-swaync.dnd-none {
+    color: #dedede;
+}
+
+#custom-swaync.notification {
+    color: #ffab40;
+}
+
+#custom-swaync.dnd-none {
+    color: #dedede;
+}
+
+#custom-swaync.dnd-notification {
+    color: #ffab40;
 }

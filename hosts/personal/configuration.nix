@@ -137,24 +137,30 @@
     wget
     kitty
     rsync
+    unzip
     ripgrep
     pamixer
     blueberry
+    libnotify
     docker-compose
+    swaynotificationcenter
 
     # languages
     nodejs_21
     python312
 
     # wm/de
+    glib
     kanshi
     waybar
+    nwg-look
     hypridle
     hyprlock
     hyprshot
     hyprpaper
     wlr-randr
     brightnessctl
+    capitaine-cursors
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
 
@@ -208,10 +214,22 @@
       enable = true;
       antialias = true;
 
+      hinting = {
+        enable = true;
+        # style = "full"; # no difference
+        # autohint = true; # no difference
+      };
+
+      subpixel = {
+        # Makes it bolder
+        rgba = "rgb";
+        lcdfilter = "default"; # no difference
+      };
+
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = ["GeistMono NF"];
-        sansSerif = ["SF Pro Text" "Noto Color Emoji"];
+        sansSerif = ["Noto Sans" "Noto Color Emoji"];
         serif = ["Noto Serif" "Noto Color Emoji"];
       };
     };

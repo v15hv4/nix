@@ -21,6 +21,7 @@
     pkgs.albert
     pkgs.vscode
     pkgs.spotify
+    pkgs.ferdium
     pkgs.google-chrome
     pkgs.telegram-desktop
 
@@ -30,12 +31,12 @@
     pkgs.clangStdenv
 
     # utils
+    pkgs.uv
     pkgs.jq
     pkgs.bat
     pkgs.eza
     pkgs.duf
     pkgs.thefuck
-    pkgs.nix-prefetch-github
 
     # stuff
     pkgs.wttrbar
@@ -95,9 +96,17 @@
   # or
   #
   #  /etc/profiles/per-user/v15hv4/etc/profile.d/hm-session-vars.sh
-  #
+  
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  # git
+  programs.git = {
+    enable = true;
+    userName  = "v15hv4";
+    userEmail = "vishva2912@gmail.com";
+    lfs.enable = true;
   };
 
   # zsh
