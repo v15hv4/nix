@@ -1,58 +1,58 @@
 *,
 *:hover {
-    border: none;
-    font-family: "SF Pro Display", "Material Design Icons", monospace;
-    font-size: 13px;
-    font-weight: 600;
-    min-height: 0;
+  border: none;
+  font-family: "SF Pro Display", "Material Design Icons", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 0;
 }
 
 window#waybar {
-    background: #000000;
-    color: #dedede;
-    border-radius: 0;
+  background: #000000;
+  color: #dedede;
+  border-radius: 0;
 }
 
 tooltip {
-    background: #121212;
-    border: none;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #dedede;
+  background: #121212;
+  border: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #dedede;
 }
 
 #workspaces {
-    margin: 0px 4px;
+  margin: 0px 4px;
 }
 
 #workspaces button {
-    padding: 0px;
-    background-color: #000000;
-    color: #434343;
+  padding: 0px;
+  background-color: #000000;
+  color: #434343;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background: none;
-    border: none;
-    transition: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: none;
+  border: none;
+  transition: none;
 }
 
 #workspaces button.empty {
-    color: #434343;
+  color: #434343;
 }
 
 #workspaces button.active {
-    color: #dedede;
+  color: #dedede;
 }
 
 #workspaces button.focused {
-    color: #dedede;
+  color: #dedede;
 }
 
 #workspaces button.urgent {
-    color: #f44336;
+  color: #f44336;
 }
 
 #clock,
@@ -68,28 +68,28 @@ tooltip {
 #custom-sep,
 #custom-weather,
 #custom-swaync {
-    color: #dedede;
-    background: #000000;
-    padding: 8px 0px;
-    margin: 0px 4px;
+  color: #dedede;
+  background: #000000;
+  padding: 8px 0px;
+  margin: 0px 4px;
 }
 
 #network:hover {
-    all: inherit;
-    padding: 0px;
-    margin: 0px 4px;
+  all: inherit;
+  padding: 0px;
+  margin: 0px 4px;
 }
 
 #pulseaudio:hover {
-    all: inherit;
-    padding: 0px;
-    margin: 0px 4px;
+  all: inherit;
+  padding: 0px;
+  margin: 0px 4px;
 }
 
 #custom-sep {
-    margin: 0px 1px;
-    padding: 0px;
-    color: #666666;
+  margin: 0px 1px;
+  padding: 0px;
+  color: #666666;
 }
 
 #tray {
@@ -102,27 +102,27 @@ tooltip {
 }
 
 #network {
-    color: #aeea00;
+  color: #aeea00;
 }
 
 #network.disconnected {
-    color: #ff6e40;
+  color: #ff6e40;
 }
 
 #pulseaudio.output {
-    color: #aeea00;
+  color: #aeea00;
 }
 
 #pulseaudio.input {
-    color: #aeea00;
+  color: #aeea00;
 }
 
 #pulseaudio.output.muted {
-    color: #ff6e40;
+  color: #ff6e40;
 }
 
 #pulseaudio.input.source-muted {
-    color: #ff6e40;
+  color: #ff6e40;
 }
 
 #battery {
@@ -132,41 +132,41 @@ tooltip {
 }
 
 #cpu {
-    color: #ffe57f;
+  color: #ffe57f;
 }
 
 #memory {
-    color: #8c9eff;
+  color: #8c9eff;
 }
 
 #disk {
-    color: #ffab40;
+  color: #ffab40;
 }
 
 #bluetooth.on {
-    color: #dedede;
+  color: #dedede;
 }
 
 #bluetooth.off {
-    color: #434343;
+  color: #434343;
 }
 
 #bluetooth.connected {
-    color: #0082FC;
+  color: #0082fc;
 }
 
 #custom-swaync.dnd-none {
-    color: #dedede;
+  color: #dedede;
 }
 
 #custom-swaync.notification {
-    color: #ffab40;
+  color: #ff6e40;
 }
 
 #custom-swaync.dnd-none {
-    color: #dedede;
+  color: #dedede;
 }
 
 #custom-swaync.dnd-notification {
-    color: #ffab40;
+  color: #ffab40;
 }
