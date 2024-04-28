@@ -18,10 +18,13 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.vlc
     pkgs.albert
     pkgs.vscode
     pkgs.spotify
     pkgs.ferdium
+    pkgs.obs-studio
+    pkgs.openshot-qt
     pkgs.google-chrome
     pkgs.telegram-desktop
 
@@ -140,6 +143,7 @@
       rs = "rsync -avzWP";
       dc = "docker compose";
       nsn = "nix search nixpkgs ^";
+      usn = "docker run -it -v $(pwd):/app usn";
     };
   };
 

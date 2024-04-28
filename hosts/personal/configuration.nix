@@ -141,6 +141,7 @@
     ripgrep
     pamixer
     blueberry
+    playerctl
     libnotify
     docker-compose
     swaynotificationcenter
