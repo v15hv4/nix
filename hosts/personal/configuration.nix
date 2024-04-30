@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ./nvidia.nix
     ];
 
   # Bootloader.
@@ -54,7 +55,7 @@
   services.xserver.enable = true;
 
   # Use LightDM for login management
-  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "v15hv4";
 
