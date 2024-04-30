@@ -127,7 +127,7 @@
     "format-disabled": "󰂲",
     "format-connected": "󰂱",
     "format-connected-battery": "󰂱 {device_battery_percentage}%",
-    "on-click": "blueberry",
+    "on-click": "blueman-manager",
     "on-click-right": "~/.config/waybar/bluetooth/toggle.sh",
     "tooltip-format": "{status}",
   },

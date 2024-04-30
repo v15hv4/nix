@@ -143,6 +143,7 @@
       rs = "rsync -avzWP";
       dc = "docker compose";
       nsn = "nix search nixpkgs ^";
+      nre = "sudo nixos-rebuild switch --impure";
       usn = "docker run -it -v $(pwd):/app usn";
     };
   };

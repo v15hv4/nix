@@ -15,11 +15,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
+  
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "legion"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # enable flakes
+  # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Configure network proxy if necessary
@@ -92,11 +95,11 @@
   # Enable bluetooth
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
-        # Experimental = true;
+        Experimental = false;
       };
     };
   };
@@ -140,14 +143,13 @@
     unzip
     ripgrep
     pamixer
-    blueberry
     playerctl
     libnotify
     docker-compose
     swaynotificationcenter
 
     # languages
-    nodejs_21
+    nodejs
     python312
 
     # wm/de
@@ -219,8 +221,6 @@
 
       hinting = {
         enable = true;
-        # style = "full"; # no difference
-        # autohint = true; # no difference
       };
 
       subpixel = {
