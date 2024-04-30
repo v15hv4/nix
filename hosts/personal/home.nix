@@ -142,9 +142,12 @@
       cat = "bat --theme gruvbox-light";
       rs = "rsync -avzWP";
       dc = "docker compose";
+
+      # nix-specific
+      nsh = "nix-shell -p";
       nsn = "nix search nixpkgs ^";
       nre = "sudo nixos-rebuild switch --impure";
-      usn = "docker run -it -v $(pwd):/app usn";
+      ngc = "sudo nix-collect-garbage --delete-old && sudo nix-store --gc";
     };
   };
 
