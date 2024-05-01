@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      # ./nvidia.nix
+      ./nvidia.nix
     ];
 
   # Bootloader.
@@ -57,7 +57,7 @@
   # Use LightDM for login management
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "v15hv4";
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   # Configure keymap in X11
   services.xserver = {

@@ -81,6 +81,8 @@
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     ".tmux.conf".source = ./dotfiles/.tmux.conf;
+
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

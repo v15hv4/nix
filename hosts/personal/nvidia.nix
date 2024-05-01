@@ -6,10 +6,10 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      nvidia-vaapi-driver
-      libvdpau-va-gl
-    ];
+    # extraPackages = with pkgs; [
+    #   nvidia-vaapi-driver
+    #   libvdpau-va-gl
+    # ];
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -42,19 +42,22 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
-      sync.enable = true;
-      # offload = {
-      #   enable = true;
-      #   enableOffloadCmd = true;
-      # };
+      # sync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # reverseSync.enable = true;
 
       intelBusId = "PCI:0:1:0";
       nvidiaBusId = "PCI:0:0:2";
     };
   };
 
-  environment.sessionVariables.LIBVA_DRIVER_NAME = "nvidia";
+  boot.initrd.kernelModules = [ "nvidia" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  # boot.kernelParams = [ "module_blacklist=i915" ];
 }
