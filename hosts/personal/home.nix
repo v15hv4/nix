@@ -76,6 +76,7 @@
     ".config/kitty".source = ./dotfiles/kitty;
     ".config/kanshi".source = ./dotfiles/kanshi;
     ".config/waybar".source = ./dotfiles/waybar;
+    ".config/swaync".source = ./dotfiles/swaync;
     ".config/albert.conf".source = ./dotfiles/albert.conf;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
