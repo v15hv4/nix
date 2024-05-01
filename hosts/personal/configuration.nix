@@ -55,9 +55,9 @@
   services.xserver.enable = true;
 
   # Use LightDM for login management
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "v15hv4";
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "v15hv4";
 
   # Configure keymap in X11
   services.xserver = {
