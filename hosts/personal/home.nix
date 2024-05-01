@@ -19,14 +19,20 @@
   # environment.
   home.packages = [
     pkgs.vlc
-    pkgs.albert
+    pkgs.tofi
+    # pkgs.albert
     pkgs.vscode
     pkgs.spotify
     pkgs.ferdium
     pkgs.obs-studio
     pkgs.openshot-qt
-    pkgs.google-chrome
     pkgs.telegram-desktop
+    (pkgs.google-chrome.override {
+      commandLineArgs = [
+        "--enable-features=UseOzonePlatform"
+        "--ozone-platform=wayland"
+      ];
+    })
 
     # languages
     pkgs.clang-tools
@@ -66,6 +72,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/hypr".source = ./dotfiles/hypr;
+    ".config/tofi".source = ./dotfiles/tofi;
     ".config/kitty".source = ./dotfiles/kitty;
     ".config/kanshi".source = ./dotfiles/kanshi;
     ".config/waybar".source = ./dotfiles/waybar;

@@ -163,6 +163,10 @@
     hyprpaper
     grimblast
     wlr-randr
+    qt6ct
+    qt6.qtwayland
+    qt5ct
+    qt5.qtwayland
     brightnessctl
     capitaine-cursors
     xdg-desktop-portal
