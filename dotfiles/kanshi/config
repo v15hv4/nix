@@ -19,10 +19,10 @@ profile mobiuz-2 {
 }
 
 profile standalone-1 {
-	output eDP-1 enable scale 1
+	output eDP-1 enable scale 1.2
 }
 
 profile standalone-2 {
-	output eDP-2 enable scale 1
+	output eDP-2 enable scale 1.2
 }
 

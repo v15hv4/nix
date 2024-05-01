@@ -36,6 +36,7 @@
 
     # stuff
     pkgs.wttrbar
+    pkgs.tailscale
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
