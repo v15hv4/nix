@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      # ./nvidia.nix
+      ./nvidia.nix
     ];
 
   # Bootloader.
@@ -52,6 +52,7 @@
   };
 
   # Use LightDM for login management
+  services.displayManager.sddm.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "v15hv4";
   services.displayManager.defaultSession = "none+bspwm";
@@ -63,12 +64,9 @@
       layout = "us";
       variant = "";
     };
-    displayManager.lightdm.enable = true;
     windowManager.bspwm = {
       enable = true;
-      sxhkd = {
-        package = pkgs.sxhkd;
-      };
+      sxhkd.package = pkgs.sxhkd;
     };
   };
 
@@ -153,16 +151,24 @@
 
     # wm/de
     glib
-    kanshi
     rofi
-    polybar
+    # kanshi
+    qt5ct
+    autorandr
     flameshot
+    qogir-theme
+    lxappearance
     brightnessctl
+    qogir-icon-theme
     betterlockscreen
     capitaine-cursors
     xdg-desktop-portal
+    qtstyleplugin-kvantum
     xdg-desktop-portal-gtk
-    inputs.picom.packages.x86_64-linux.default
+    inputs.picom.defaultPackage.x86_64-linux
+    (polybar.override {
+      pulseSupport = true;
+    })
 
     # gui
     dolphin
@@ -253,11 +259,35 @@
     partOf = [ "graphical-session.target" ];
 
     serviceConfig = {
-      ExecStart = "${inputs.picom.packages.x86_64-linux.default}/bin/picom";
+      ExecStart = "${inputs.picom.defaultPackage.x86_64-linux}/bin/picom";
       RestartSec = 3;
       Restart = "always";
     };
   };
+
+  # systemd.user.services.polybar = {
+  #   enable = true;
+  #   description = "Polybar";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   partOf = [ "graphical-session.target" ];
+  #
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.polybar}/bin/polybar";
+  #     RestartSec = 3;
+  #     Restart = "always";
+  #   };
+  # };
+
+  # QT
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = {
+      package = pkgs.catpuccin-kvantum;
+      name = "kvantum";
+    };
+  };
+  environment.variables.QT_QPA_PLATFORMTHEME = "qt5ct";
 
   # docker
   virtualisation.docker = {

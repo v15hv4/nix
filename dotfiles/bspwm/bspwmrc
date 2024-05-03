@@ -1,10 +1,14 @@
 #!/bin/sh
 
+# startup applications
+feh --no-fehbg --bg-scale ~/.cache/betterlockscreen/current/wall_resize.png
 polybar &
 
-bspc config window_gap           8
-bspc config border_width         5
-bspc config focused_border_color '#458588'
+# config
+bspc config window_gap           5
+bspc config border_width         2
+bspc config focused_border_color '#121212'
+bspc config normal_border_color '#999999'
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
@@ -12,7 +16,7 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 bspc config merge_overlapping_monitors true
 
-bspc monitor -d I II III IV # V VI VII VIII IX X
+bspc monitor -d I II III IV V # VI VII VIII IX X
 
 bspc rule -a feh state=floating
 bspc rule -a Zathura state=tiled

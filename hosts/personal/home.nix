@@ -30,6 +30,7 @@
     pkgs.google-chrome
 
     # languages
+    pkgs.cargo
     pkgs.clang-tools
     pkgs.clang_12
     pkgs.clangStdenv
@@ -74,14 +75,17 @@
     ".config/bspwm".source = ./dotfiles/bspwm;
     ".config/sxhkd".source = ./dotfiles/sxhkd;
     ".config/kitty".source = ./dotfiles/kitty;
-    ".config/kanshi".source = ./dotfiles/kanshi;
+    ".config/gtk-3.0".source = ./dotfiles/gtk-3.0;
+    ".config/flameshot".source = ./dotfiles/flameshot;
+    # ".config/kanshi".source = ./dotfiles/kanshi;
     # ".config/waybar".source = ./dotfiles/waybar;
     # ".config/swaync".source = ./dotfiles/swaync;
+
     ".config/albert.conf".source = ./dotfiles/albert.conf;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
+
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     ".tmux.conf".source = ./dotfiles/.tmux.conf;
-
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -130,15 +134,15 @@
       enable = true;
       plugins = [ "git" "thefuck" "docker" "docker-compose" "systemd" ];
     };
+    enableCompletion = true;
     initExtraBeforeCompInit = ''
+      fpath+=~/.zfunc
       # p10k instant prompt
       P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
       [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
     '';
     initExtra = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      fpath+=~/.zfunc
-      autoload -Uz compinit && compinit
     '';
     plugins = [
       {
