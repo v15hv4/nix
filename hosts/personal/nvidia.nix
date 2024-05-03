@@ -46,11 +46,11 @@
 
     prime = {
       # sync.enable = true;
-      # offload = {
-      #   enable = true;
-      #   enableOffloadCmd = true;
-      # };
-      reverseSync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # reverseSync.enable = true;
 
       intelBusId = "PCI:0:1:0";
       nvidiaBusId = "PCI:0:0:2";

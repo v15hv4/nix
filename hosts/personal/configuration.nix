@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      ./nvidia.nix
+      # ./nvidia.nix
     ];
 
   # Bootloader.
@@ -51,19 +51,24 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Use LightDM for login management
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "v15hv4";
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "none+bspwm";
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb = {
       layout = "us";
       variant = "";
+    };
+    displayManager.lightdm.enable = true;
+    windowManager.bspwm = {
+      enable = true;
+      sxhkd = {
+        package = pkgs.sxhkd;
+      };
     };
   };
 
@@ -73,13 +78,6 @@
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  # hardware.pulseaudio = {
-  #   enable = true;
-  #   package = pkgs.pulseaudioFull;
-  #   extraConfig = "
-  #     load-module module-switch-on-connect
-  #   ";
-  # };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -132,7 +130,7 @@
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
-    imv
+    feh
     fzf
     git
     vim
@@ -147,7 +145,7 @@
     playerctl
     libnotify
     docker-compose
-    swaynotificationcenter
+    # swaynotificationcenter
 
     # languages
     nodejs
@@ -156,23 +154,15 @@
     # wm/de
     glib
     kanshi
-    waybar
-    nwg-look
-    hypridle
-    hyprlock
-    hyprpaper
-    grimblast
-    wlr-randr
-    qt6ct
-    qt6.qtwayland
-    qt5ct
-    qt5.qtwayland
+    rofi
+    polybar
+    flameshot
     brightnessctl
+    betterlockscreen
     capitaine-cursors
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    sway-contrib.grimshot
+    inputs.picom.packages.x86_64-linux.default
 
     # gui
     dolphin
@@ -255,9 +245,19 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # desktop environment
-  programs.hyprland.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # compositor
+  systemd.user.services.picom = {
+    enable = true;
+    description = "Picom composite manager";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+
+    serviceConfig = {
+      ExecStart = "${inputs.picom.packages.x86_64-linux.default}/bin/picom";
+      RestartSec = 3;
+      Restart = "always";
+    };
+  };
 
   # docker
   virtualisation.docker = {

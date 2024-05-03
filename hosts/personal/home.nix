@@ -27,12 +27,7 @@
     pkgs.obs-studio
     pkgs.openshot-qt
     pkgs.telegram-desktop
-    (pkgs.google-chrome.override {
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-      ];
-    })
+    pkgs.google-chrome
 
     # languages
     pkgs.clang-tools
@@ -74,12 +69,14 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/hypr".source = ./dotfiles/hypr;
-    ".config/tofi".source = ./dotfiles/tofi;
+    # ".config/hypr".source = ./dotfiles/hypr;
+    # ".config/tofi".source = ./dotfiles/tofi;
+    ".config/bspwm".source = ./dotfiles/bspwm;
+    ".config/sxhkd".source = ./dotfiles/sxhkd;
     ".config/kitty".source = ./dotfiles/kitty;
     ".config/kanshi".source = ./dotfiles/kanshi;
-    ".config/waybar".source = ./dotfiles/waybar;
-    ".config/swaync".source = ./dotfiles/swaync;
+    # ".config/waybar".source = ./dotfiles/waybar;
+    # ".config/swaync".source = ./dotfiles/swaync;
     ".config/albert.conf".source = ./dotfiles/albert.conf;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
@@ -165,6 +162,15 @@
       ngc = "sudo nix-collect-garbage --delete-old && sudo nix-store --gc";
     };
   };
+
+  # services.polybar = {
+  #   package = pkgs.polybar.override {
+  #     alsaSupport = true;
+  #     pulseSupport = true;
+  #   };
+  #   enable = true;
+  #   script = "exec polybar &";
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
