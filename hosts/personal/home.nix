@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -49,6 +49,9 @@
 
     # stuff
     pkgs.wttrbar
+
+    # other
+    inputs.shaman.packages.x86_64-linux.shaman
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
