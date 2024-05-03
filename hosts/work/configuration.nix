@@ -267,6 +267,11 @@
     };
   };
 
+  # tailscale
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
 
   # power management
   services.tlp = {

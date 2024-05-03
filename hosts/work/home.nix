@@ -34,9 +34,15 @@
     pkgs.eza
     pkgs.duf
 
+    # languages
+    pkgs.cargo
+
     # stuff
+    pkgs.slack
+    pkgs.ansible
     pkgs.wttrbar
-    pkgs.tailscale
+    pkgs.discord
+    pkgs.gcalcli
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -62,12 +68,15 @@
     ".config/hypr".source = ./dotfiles/hypr;
     ".config/tofi".source = ./dotfiles/tofi;
     ".config/kitty".source = ./dotfiles/kitty;
-    ".config/kanshi".source = ./dotfiles/kanshi;
     ".config/waybar".source = ./dotfiles/waybar;
+    ".config/swaync".source = ./dotfiles/swaync;
     ".config/albert.conf".source = ./dotfiles/albert.conf;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     ".tmux.conf".source = ./dotfiles/.tmux.conf;
+
+    ".config/kanshi".source = ./dotfiles-local/kanshi;
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
