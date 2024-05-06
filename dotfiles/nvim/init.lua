@@ -117,6 +117,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 -- OPTIONS -- {{{
 -- See `:help vim.o`
 
+-- Relative line numbers
+vim.wo.relativenumber = true
+
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

@@ -144,16 +144,16 @@ alt + ctrl + {Left,Down,Up,Right}
 
 # brightness
 XF86MonBrightness{Up,Down}
- 	xbacklight -{inc,dec} 10
+ 	brightnessctl s 5%{+,-}
 ctrl + shift + {Up,Down}
-	xbacklight -{inc,dec} 10
+ 	brightnessctl s 5%{+,-}
 
 # volume
 XF86Audio{RaiseVolume,LowerVolume}
-	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+	pamixer {-i,-d} 5
 
 XF86Audio{Mute}
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	pamixer -t
 
 # screenshots
 Print

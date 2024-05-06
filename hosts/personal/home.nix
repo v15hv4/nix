@@ -164,6 +164,7 @@
       nsn = "nix search nixpkgs ^";
       nre = "sudo nixos-rebuild switch --impure";
       ngc = "sudo nix-collect-garbage --delete-old && sudo nix-store --gc";
+      pelf = "patchelf --set-interpreter `nix eval nixpkgs#stdenv.cc.bintools.dynamicLinker --raw`";
     };
   };
 

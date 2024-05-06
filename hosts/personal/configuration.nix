@@ -140,6 +140,7 @@
     unzip
     ripgrep
     pamixer
+    patchelf
     playerctl
     libnotify
     docker-compose
@@ -163,7 +164,6 @@
     betterlockscreen
     capitaine-cursors
     xdg-desktop-portal
-    qtstyleplugin-kvantum
     xdg-desktop-portal-gtk
     inputs.picom.defaultPackage.x86_64-linux
     (polybar.override {
@@ -173,6 +173,8 @@
     # gui
     dolphin
     pavucontrol
+    xorg.libxcb
+    xorg.libX11
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -218,17 +220,17 @@
 
     fontconfig = {
       enable = true;
-      antialias = true;
+      # antialias = true;
 
-      hinting = {
-        enable = true;
-      };
-
-      subpixel = {
-        # Makes it bolder
-        rgba = "rgb";
-        lcdfilter = "default"; # no difference
-      };
+      # hinting = {
+      #   enable = true;
+      # };
+      #
+      # subpixel = {
+      #   # Makes it bolder
+      #   rgba = "rgb";
+      #   lcdfilter = "default"; # no difference
+      # };
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
@@ -282,10 +284,7 @@
   qt = {
     enable = true;
     platformTheme = "qt5ct";
-    style = {
-      package = pkgs.catpuccin-kvantum;
-      name = "kvantum";
-    };
+    style = "adwaita";
   };
   environment.variables.QT_QPA_PLATFORMTHEME = "qt5ct";
 
