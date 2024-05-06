@@ -20,12 +20,7 @@
   home.packages = [
     pkgs.tofi
     pkgs.telegram-desktop
-    (pkgs.google-chrome.override {
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-      ];
-    })
+    pkgs.google-chrome.override
 
     # utils
     pkgs.uv
@@ -65,17 +60,24 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/hypr".source = ./dotfiles/hypr;
-    ".config/tofi".source = ./dotfiles/tofi;
+    # ".config/hypr".source = ./dotfiles/hypr;
+    # ".config/tofi".source = ./dotfiles/tofi;
+    ".config/bspwm".source = ./dotfiles/bspwm;
+    ".config/sxhkd".source = ./dotfiles/sxhkd;
     ".config/kitty".source = ./dotfiles/kitty;
-    ".config/waybar".source = ./dotfiles/waybar;
-    ".config/swaync".source = ./dotfiles/swaync;
-    ".config/albert.conf".source = ./dotfiles/albert.conf;
+    ".config/picom".source = ./dotfiles/picom;
+    ".config/polybar".source = ./dotfiles/polybar;
+    ".config/gtk-3.0".source = ./dotfiles/gtk-3.0;
+    ".config/flameshot".source = ./dotfiles/flameshot;
+    # ".config/swaync".source = ./dotfiles/swaync;
+    # ".config/albert.conf".source = ./dotfiles/albert.conf;
+
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
+
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     ".tmux.conf".source = ./dotfiles/.tmux.conf;
 
-    ".config/kanshi".source = ./dotfiles-local/kanshi;
+    # ".config/kanshi".source = ./dotfiles-local/kanshi;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -124,15 +126,15 @@
       enable = true;
       plugins = [ "git" "docker" "docker-compose" "systemd" ];
     };
+    enableCompletion = true;
     initExtraBeforeCompInit = ''
+      fpath+=~/.zfunc
       # p10k instant prompt
       P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
       [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
     '';
     initExtra = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      fpath+=~/.zfunc
-      autoload -Uz compinit && compinit
     '';
     plugins = [
       {
@@ -154,6 +156,7 @@
       nsn = "nix search nixpkgs ^";
       nre = "sudo nixos-rebuild switch --impure";
       ngc = "sudo nix-collect-garbage --delete-old && sudo nix-store --gc";
+      pelf = "patchelf --set-interpreter `nix eval nixpkgs#stdenv.cc.bintools.dynamicLinker --raw`";
     };
   };
 

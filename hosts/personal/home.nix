@@ -75,13 +75,15 @@
     ".config/bspwm".source = ./dotfiles/bspwm;
     ".config/sxhkd".source = ./dotfiles/sxhkd;
     ".config/kitty".source = ./dotfiles/kitty;
+    ".config/picom".source = ./dotfiles/picom;
+    ".config/polybar".source = ./dotfiles/polybar;
     ".config/gtk-3.0".source = ./dotfiles/gtk-3.0;
     ".config/flameshot".source = ./dotfiles/flameshot;
     # ".config/kanshi".source = ./dotfiles/kanshi;
     # ".config/waybar".source = ./dotfiles/waybar;
     # ".config/swaync".source = ./dotfiles/swaync;
 
-    ".config/albert.conf".source = ./dotfiles/albert.conf;
+    # ".config/albert.conf".source = ./dotfiles/albert.conf;
     ".config/nvim/init.lua".source = ./dotfiles/nvim/init.lua;
 
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;

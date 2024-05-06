@@ -51,7 +51,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Use LightDM for login management
+  # Login
   services.displayManager.sddm.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "v15hv4";

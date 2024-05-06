@@ -53,16 +53,22 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Use LightDM for login management
+  # Login
+  services.displayManager.sddm.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "v15hv4";
-  services.xserver.displayManager.lightdm.enable = true;
+  services.displayManager.defaultSession = "none+bspwm";
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb = {
       layout = "us";
       variant = "";
+    };
+    windowManager.bspwm = {
+      enable = true;
+      sxhkd.package = pkgs.sxhkd;
     };
   };
 
@@ -131,7 +137,7 @@
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
-    imv
+    feh
     fzf
     git
     vim
@@ -143,10 +149,10 @@
     unzip
     ripgrep
     pamixer
+    patchelf
     playerctl
     libnotify
     docker-compose
-    swaynotificationcenter
 
     # languages
     nodejs
@@ -154,24 +160,22 @@
 
     # wm/de
     glib
-    kanshi
-    waybar
-    nwg-look
-    hypridle
-    hyprlock
-    hyprpaper
-    grimblast
-    wlr-randr
-    qt6ct
-    qt6.qtwayland
+    rofi
     qt5ct
-    qt5.qtwayland
+    autorandr
+    flameshot
+    qogir-theme
+    lxappearance
     brightnessctl
+    qogir-icon-theme
+    betterlockscreen
     capitaine-cursors
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    sway-contrib.grimshot
+    inputs.picom.defaultPackage.x86_64-linux
+    (polybar.override {
+      pulseSupport = true;
+    })
 
     # gui
     dolphin
@@ -254,9 +258,27 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # desktop environment
-  programs.hyprland.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # compositor
+  systemd.user.services.picom = {
+    enable = true;
+    description = "Picom composite manager";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+
+    serviceConfig = {
+      ExecStart = "${inputs.picom.defaultPackage.x86_64-linux}/bin/picom";
+      RestartSec = 3;
+      Restart = "always";
+    };
+  };
+
+  # QT
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "adwaita";
+  };
+  environment.variables.QT_QPA_PLATFORMTHEME = "qt5ct";
 
   # docker
   virtualisation.docker = {
