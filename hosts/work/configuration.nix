@@ -50,9 +50,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Login
   services.displayManager.sddm.enable = true;
   services.displayManager.autoLogin.enable = true;
