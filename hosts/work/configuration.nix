@@ -115,7 +115,10 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad.naturalScrolling = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.v15hv4 = {
@@ -159,6 +162,7 @@
     glib
     rofi
     qt5ct
+    dunst
     autorandr
     flameshot
     qogir-theme
@@ -170,9 +174,7 @@
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     inputs.picom.defaultPackage.x86_64-linux
-    (polybar.override {
-      pulseSupport = true;
-    })
+    (polybar.override { pulseSupport = true; })
 
     # gui
     dolphin
@@ -255,19 +257,19 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # compositor
-  systemd.user.services.picom = {
-    enable = true;
-    description = "Picom composite manager";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-
-    serviceConfig = {
-      ExecStart = "${inputs.picom.defaultPackage.x86_64-linux}/bin/picom";
-      RestartSec = 3;
-      Restart = "always";
-    };
-  };
+  # # compositor
+  # systemd.user.services.picom = {
+  #   enable = true;
+  #   description = "Picom composite manager";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   partOf = [ "graphical-session.target" ];
+  #
+  #   serviceConfig = {
+  #     ExecStart = "${inputs.picom.defaultPackage.x86_64-linux}/bin/picom";
+  #     RestartSec = 3;
+  #     Restart = "always";
+  #   };
+  # };
 
   # QT
   qt = {
@@ -307,9 +309,9 @@
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 20;
 
-      # Optional: helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
-      STOP_CHARGE_THRESH_BAT0 = 90; # 80 and above it stops charging
+      # helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 40;
+      STOP_CHARGE_THRESH_BAT0 = 96;
     };
   };
 }

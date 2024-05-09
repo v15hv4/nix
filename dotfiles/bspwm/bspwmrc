@@ -1,8 +1,10 @@
 #!/bin/sh
 
 # startup applications
+autorandr -c
 feh --no-fehbg --bg-scale ~/.cache/betterlockscreen/current/wall_resize.png
 polybar &
+picom -b
 
 # config
 bspc config window_gap           5

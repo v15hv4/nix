@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -18,9 +18,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.tofi
     pkgs.telegram-desktop
-    pkgs.google-chrome.override
+    pkgs.magic-wormhole
+    pkgs.google-chrome
 
     # utils
     pkgs.uv
@@ -28,9 +28,13 @@
     pkgs.bat
     pkgs.eza
     pkgs.duf
+    pkgs.dig
 
     # languages
     pkgs.cargo
+    pkgs.clang-tools
+    pkgs.clang_12
+    pkgs.clangStdenv
 
     # stuff
     pkgs.slack
@@ -38,6 +42,9 @@
     pkgs.wttrbar
     pkgs.discord
     pkgs.gcalcli
+
+    # other
+    inputs.shaman.packages.x86_64-linux.shaman
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -66,7 +73,6 @@
     ".config/sxhkd".source = ./dotfiles/sxhkd;
     ".config/kitty".source = ./dotfiles/kitty;
     ".config/picom".source = ./dotfiles/picom;
-    ".config/polybar".source = ./dotfiles/polybar;
     ".config/gtk-3.0".source = ./dotfiles/gtk-3.0;
     ".config/flameshot".source = ./dotfiles/flameshot;
     # ".config/swaync".source = ./dotfiles/swaync;
@@ -77,7 +83,7 @@
     ".p10k.zsh".source = ./dotfiles/.p10k.zsh;
     ".tmux.conf".source = ./dotfiles/.tmux.conf;
 
-    # ".config/kanshi".source = ./dotfiles-local/kanshi;
+    ".config/polybar".source = ./dotfiles-local/polybar;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -158,6 +164,11 @@
       ngc = "sudo nix-collect-garbage --delete-old && sudo nix-store --gc";
       pelf = "patchelf --set-interpreter `nix eval nixpkgs#stdenv.cc.bintools.dynamicLinker --raw`";
     };
+  };
+
+  # notifications
+  services.dunst = {
+    enable = true;
   };
 
   # Let Home Manager install and manage itself.
