@@ -147,6 +147,7 @@
     kitty
     rsync
     unzip
+    upower
     ripgrep
     pamixer
     patchelf
@@ -163,6 +164,7 @@
     rofi
     qt5ct
     dunst
+    srandrd
     autorandr
     flameshot
     qogir-theme

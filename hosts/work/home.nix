@@ -62,6 +62,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    (pkgs.writeShellScriptBin "aph" ''
+      ansible-playbook -i "$2," $1
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
